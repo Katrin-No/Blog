@@ -1,0 +1,9 @@
+<h1>Blogposts</h1>
+<br>
+<% @posts.each do |post| %>
+  <div class="well">
+    <h2><%= link_to post.title, post %></h2>
+    <p>(vom <%= post.created_at %>)</p>
+  </div>
+<% end %>
+

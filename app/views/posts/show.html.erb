@@ -1,0 +1,43 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @post.title %>
+</p>
+
+<p>
+  <strong>Body:</strong>
+  <%= @post.body %>
+</p>
+
+<p>Kommentare:</p>
+<div class="panel panel-primary">
+  <div class="panel-heading">Neuer Kommentar:</div>
+  <div class="panel-body">
+    <%= form_for @comment do |f| %>
+      <div class="field">
+        <%= f.label :commenter %>
+        <%= f.text_field :commenter %>
+      </div>
+
+      <div class="field">
+        <%= f.label :body %>
+        <%= f.text_area :body %>
+      </div>
+
+      <%= f.hidden_field :post_id, value: @post.id %>
+
+      <%= f.submit "Abschicken" %>
+    <% end %>
+  </div>
+</div>
+
+<ul>
+  <% @post.comments.each do |comment| %>
+    <li>"<%= comment.body %>" von <%= comment.commenter %></li>
+  <% end %>
+</ul>
+
+<%= link_to 'Edit', edit_post_path(@post) %> |
+<%= link_to 'Back', posts_path %>
+
