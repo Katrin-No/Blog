@@ -1,9 +1,33 @@
-<h1>Blogposts</h1>
-<br>
+<h1>Rezeptenbibliothek</h1> <br>
+
 <% @posts.each do |post| %>
-  <div class="well">
-    <h2><%= link_to post.title, post %></h2>
+  <div class="alert alert-primary" role="alert">
+    <h3><%= link_to post.title, post %></h3>
     <p>(vom <%= post.created_at %>)</p>
   </div>
 <% end %>
 
+<div class="container">
+<div class="shadow p-3 mb-5 bg-white rounded">
+  <div class="row">
+    <div class="col-sm">
+    <% @posts.each do |post| %>
+        <div class="alert alert-primary" role="alert">
+          <h3><%= link_to post.title, post %></h3>
+          <p>(vom <%= post.created_at %>)</p>
+        </div>
+      <% end %>
+    </div>
+    <div class="col-sm">
+    <% @posts.each do |post| %>
+        <div class="alert alert-primary" role="alert">
+          <h3><%= link_to post.title, post %></h3>
+          <p>(vom <%= post.created_at %>)</p>
+        </div>
+      <% end %>
+    </div>
+    <div class="col-sm">
+   l
+    </div>
+  </div>
+</div>

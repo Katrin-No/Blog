@@ -6,11 +6,17 @@
     <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
+    <ul class="nav">
+      <li class="nav-item"> <a class="nav-link active" href="http://localhost:3000/">Home</a></li>
+      <li class="nav-item"><a class="nav-link" href="http://localhost:3000/posts">Posts</a></li>
+      <li class="nav-item"><a class="nav-link" href="http://localhost:3000/posts/new">New Post</a></li>
+      <li class="nav-item"><a class="nav-link" href="http://localhost:3000/comments">Kommentar</a></li>
+    </ul>
     <%= yield %>
   </body>
 </html>
