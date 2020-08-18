@@ -1,9 +1,21 @@
-<h1>Rezeptenbibliothek</h1> <br>
+<h1>Rezeptenbibliothek</h1>
+
+<a href="#" class="badge badge-primary">Fisch</a>
+<a href="#" class="badge badge-secondary">Fleisch</a>
+<a href="#" class="badge badge-success">Gemüse</a>
+<a href="#" class="badge badge-danger">Gebacken</a>
+<a href="#" class="badge badge-warning">Gebraten</a>
+<a href="#" class="badge badge-info">Suppen</a>
+<a href="#" class="badge badge-light">Frühstück</a>
+<a href="#" class="badge badge-dark">Getränke</a>
 
 <% @posts.each do |post| %>
   <div class="alert alert-primary" role="alert">
     <h3><%= link_to post.title, post %></h3>
     <p>(vom <%= post.created_at %>)</p>
+    <% post.tags.each do |tag| %>
+    <a href="#" class="badge badge-primary"><%= tag.name %></a>
+    <% end %>
   </div>
 <% end %>
 

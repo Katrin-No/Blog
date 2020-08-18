@@ -22,6 +22,10 @@ class PostsController < ApplicationController
   def edit
   end
 
+  def tags
+    @post = Post.find params[:id]
+  end
+
   # POST /posts
   # POST /posts.json
   def create
@@ -29,7 +33,7 @@ class PostsController < ApplicationController
 
     respond_to do |format|
       if @post.save
-        format.html { redirect_to @post, notice: 'Post was successfully created.' }
+        format.html { redirect_to tag_post_path(@post), notice: 'Post was successfully created.' }
         format.json { render :show, status: :created, location: @post }
       else
         format.html { render :new }
@@ -70,6 +74,6 @@ class PostsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def post_params
-      params.require(:post).permit(:title, :body, :tag)
+      params.require(:post).permit(:title, :body)
     end
 end
