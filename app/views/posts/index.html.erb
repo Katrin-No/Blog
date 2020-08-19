@@ -1,55 +1,33 @@
-<p id="notice"><%= notice %></p>
 
-<h1>Posts</h1>
+  <p id="notice"><%= notice %></p>
 
-<br>
+  <h1>Posts</h1>
 
-<style>
-#posts_liste {
-  font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
-  border-collapse: collapse;
-  width: 100%;
-}
+  <h3>Alles, was wir hier bisher gesammelt haben: </h3>
 
-#posts_liste td, #posts_liste th {
-  border: 1px solid #ddd;
-  padding: 8px;
-}
-
-#posts_liste tr:nth-child(even){background-color: #f2f2f2;}
-
-#posts_liste tr:hover {background-color: #ddd;}
-
-#posts_liste th {
-  padding-top: 12px;
-  padding-bottom: 12px;
-  text-align: left;
-  background-color: rgba(11, 9, 107, 0.445);
-  color: white;
-}
-</style>
-
-<table id="posts_liste">
-  <thead>
-    <tr>
-      <th>Titel</th>
-      <th>Inhalt</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @posts.each do |post| %>
+  <table id="posts_liste">
+    <thead>
       <tr>
-        <td><%= post.title %></td>
-        <td><%= post.body %></td>
-        <td><%= link_to 'Show', post %></td>
-        <td><%= link_to 'Edit', edit_post_path(post) %></td>
-        <td><%= link_to 'Tags', tag_post_path(post) %></td>
-        <td><%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <th>Titel</th>
+        <th>Inhalt</th>
+        <th>Tags</th>
+        <th colspan="4">Funktion</th>
       </tr>
-    <% end %>
-    </tbody>
-</table>
-<br>
-<%= link_to 'New Post', new_post_path %>
+    </thead>
+
+    <tbody>
+      <% @posts.each do |post| %>
+        <tr>
+          <td><%= link_to post.title, post %></td>
+          <td><%= post.body %></td>
+          <td><% post.tags %> <a href="#" class="badge badge-primary"><%= tag.name %></a></td>
+          <td><%= link_to 'Show', post %></td>
+          <td><%= link_to 'Edit', edit_post_path(post) %></td>
+          <td><%= link_to 'Tags', tag_post_path(post) %></td>
+          <td><%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </tr>
+      <% end %>
+      </tbody>
+  </table>
+  <br>
+  <%= link_to 'New Post', new_post_path %>

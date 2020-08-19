@@ -1,2 +1,26 @@
-<h1 class="heading">Tags hinzufügen </h1>
-<h2> <%= @post.title %></h2>
+<body>
+    <h1 class="heading">Tags hinzufügen </h1>
+    <h2> <%= @post.title %></h2>
+
+    <%= form_with(url:tag_post_path(@post)) do |form| %>
+        <div class="field">
+        <%= form.label :tag %>
+        <%= form.text_field :tag %>
+    </div>
+        <div class="actions">
+            <%= form.submit "Speichern" %>
+        </div>
+    <% end %>
+    <div class="submittedtags">
+        <p>
+        <% @post.tags.each do |tag| %>
+            <div>
+                <%= form_with(url:remove_tag_path(@post)) do |form| %>
+                    <%= form.hidden_field :tag_id, value: tag.id %>
+                    <%= form.submit "x" %>  <a class="badge badge-primary"><%= tag.name %></a>
+                <% end %>
+            </div>
+        <% end %>
+        </p>
+    </div>
+</body>
