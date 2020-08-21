@@ -17,6 +17,7 @@ h3 {
     background-color: rgba(11, 9, 107, 0.198);
     color: rgb(30, 26, 77);
     font-family: cursive;
+    width: 100%;
 }
 
 #posts_liste {
