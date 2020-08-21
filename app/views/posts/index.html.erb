@@ -24,7 +24,7 @@
           </td>
           <td><%= link_to 'Edit', edit_post_path(post) %></td>
           <td><%= link_to '+Tags', tag_post_path(post) %></td>
-          <td><%= link_to 'Löschen', post, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          <td><%= link_to 'x', post, method: :delete, data: { confirm: 'Are you sure?' } %></td>
         </tr>
       <% end %>
       </tbody>
