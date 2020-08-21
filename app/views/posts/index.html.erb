@@ -11,7 +11,7 @@
         <th>Titel</th>
         <th>Inhalt</th>
         <th>Tags</th>
-        <th colspan="4">Funktion</th>
+        <th colspan="3">Funktion</th>
       </tr>
     </thead>
 
@@ -20,11 +20,13 @@
         <tr>
           <td><%= link_to post.title, post %></td>
           <td><%= post.body %></td>
-          <td><% post.tags %> <a href="#" class="badge badge-primary"><%= tag.name %></a></td>
-          <td><%= link_to 'Show', post %></td>
+          <td><% post.tags.each do |tag| %> 
+            <a href="<%= show_tag_path(tag) %>" class="badge badge-primary"><%= tag.name %>
+            <% end %>
+          </td>
           <td><%= link_to 'Edit', edit_post_path(post) %></td>
-          <td><%= link_to 'Tags', tag_post_path(post) %></td>
-          <td><%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          <td><%= link_to '+Tags', tag_post_path(post) %></td>
+          <td><%= link_to 'Löschen', post, method: :delete, data: { confirm: 'Are you sure?' } %></td>
         </tr>
       <% end %>
       </tbody>

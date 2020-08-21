@@ -1,6 +1,40 @@
 <body>
   <h1>Rezeptenbibliothek</h1>
 
+  <% Tag.all.each do |tag| %>
+    <a href="<%= show_tag_path(tag) %>" class="badge badge-primary"><%= tag.name %></a>
+  <% end %>
+
+  <br><br>
+
+
+  <div class="container">
+    <div class="row">
+      <% @posts.each do |post| %>
+          <div class="alert alert-primary" role="alert">
+            <h3><%= link_to post.title, post %></h3>
+            <p>(vom <%= post.created_at %>)</p>
+            <% post.tags.each do |tag| %>
+            <a href="<%= show_tag_path(tag) %>" class="badge badge-primary"><%= tag.name %></a>
+            <% end %>
+          </div>
+      <% end %>
+      <div class="col-sm"></div>
+      <div class="col-sm"></div>
+      <div class="col-sm"></div>
+      <div class="col-sm"></div>
+    </div>
+  </div>
+
+
+  <div class="card" style="width: 18rem;">
+    <img src="..." class="card-img-top" alt="...">
+    <div class="card-body">
+      <h5 class="card-title">Card title</h5>
+      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+      <a href="#" class="btn btn-primary">Go somewhere</a>
+    </div>
+  </div>
   <a href="#" class="badge badge-primary">Fisch</a>
   <a href="#" class="badge badge-secondary">Fleisch</a>
   <a href="#" class="badge badge-success">Gemüse</a>
@@ -18,34 +52,4 @@
   <button type="button" class="btn btn-outline-info">Suppen</button>
   <button type="button" class="btn btn-outline-light">Frühstück</button>
   <button type="button" class="btn btn-outline-dark">Getränke</button>
-
-  <br><br>
-
-  <div class="container">
-    <div class="row">
-      <% @posts.each do |post| %>
-          <div class="alert alert-primary" role="alert">
-            <h3><%= link_to post.title, post %></h3>
-            <p>(vom <%= post.created_at %>)</p>
-            <% post.tags.each do |tag| %>
-            <a href="<%= show_tag_path(tag) %>" class="badge badge-primary"><%= tag.name %></a>
-            <% end %>
-          </div>
-        <% end %>
-        <div class="col-sm"></div>
-        <div class="col-sm"></div>
-        <div class="col-sm"></div>
-        <div class="col-sm"></div>
-    </div>
-  </div>
-
-
-  <div class="card" style="width: 18rem;">
-    <img src="..." class="card-img-top" alt="...">
-    <div class="card-body">
-      <h5 class="card-title">Card title</h5>
-      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-      <a href="#" class="btn btn-primary">Go somewhere</a>
-    </div>
-  </div>
 </body>
