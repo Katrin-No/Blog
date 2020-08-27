@@ -1,9 +1,9 @@
 <h1><%= @tag.name %></h1>
 
-<div class="container">
-    <div class="row">
+<div class="mcontainer">
+    <div class="roww">
         <% @tag.posts.each do |post| %>
-            <div class="alert alert-primary" role="alert">
+            <div class="allert alert-prim" role="allert">
             <h3><%= link_to post.title, post %></h3>
             <p>(vom <%= post.created_at %>)</p>
             <% post.tags.each do |tag| %>
