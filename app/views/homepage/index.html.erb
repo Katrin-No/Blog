@@ -2,23 +2,23 @@
   <h1>Rezeptenbibliothek</h1>
 
   <% Tag.all.each do |tag| %>
-    <a href="<%= show_tag_path(tag) %>" class="badge badge-primary"><%= tag.name %></a>
+    <a href="<%= show_tag_path(tag) %>" class="badge badge-primary"><h6><%= tag.name %></h6></a>
   <% end %>
 
   <br><br>
 
-
-  <div class="container">
-    <div class="row">
+  <div class="mcontainer">
+    <div class="roww">
       <% @posts.each do |post| %>
-          <div class="alert alert-primary" role="alert">
-            <h3><%= link_to post.title, post %></h3>
-            <p>(vom <%= post.created_at %>)</p>
-            <% post.tags.each do |tag| %>
+        <div class="allert alert-prim" role="allert">
+          <h3><%= link_to post.title, post %></h3>
+          <p>(vom <%= post.created_at %>)</p>
+          <% post.tags.each do |tag| %>
             <a href="<%= show_tag_path(tag) %>" class="badge badge-primary"><%= tag.name %></a>
-            <% end %>
-          </div>
+          <% end %>
+        </div>
       <% end %>
+      <div class="col-sm"></div>
       <div class="col-sm"></div>
       <div class="col-sm"></div>
       <div class="col-sm"></div>
