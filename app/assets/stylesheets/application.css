@@ -3,21 +3,21 @@ body {
 }
 
 h1 {
-    background-color: rgba(11, 9, 107, 0.198);
-    color: rgb(30, 26, 77);
-    text-shadow: 3px 3px rgba(0, 0, 255, 0.418);
-    font-family: cursive;
+  background-color: rgba(11, 9, 107, 0.198);
+  color: rgb(30, 26, 77);
+  text-shadow: 3px 3px rgba(0, 0, 255, 0.418);
+  font-family: cursive;
 }
 
 h3 {
-    font-family: cursive;
+  font-family: cursive;
 }
 
 .nav {
-    background-color: rgba(11, 9, 107, 0.198);
-    color: rgb(30, 26, 77);
-    font-family: cursive;
-    width: 100%;
+  background-color: rgba(11, 9, 107, 0.198);
+  color: rgb(30, 26, 77);
+  font-family: cursive;
+  width: 100%;
 }
 
 #posts_liste {
@@ -26,13 +26,19 @@ h3 {
   width: 100%;
 }
 
-#posts_liste td, #posts_liste th {
+#posts_liste td,
+#posts_liste th {
   border: 1px solid #ddd;
   padding: 8px;
 }
 
-#posts_liste tr:nth-child(even){background-color: #f2f2f2;}
-#posts_liste tr:hover {background-color: #ddd;}
+#posts_liste tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+#posts_liste tr:hover {
+  background-color: #ddd;
+}
 
 #posts_liste th {
   padding-top: 12px;
@@ -42,14 +48,16 @@ h3 {
   color: rgb(39, 133, 240);
 }
 
-@media screen and (min-width:720px){
-  h1{
+@media screen and (min-width:720px) {
+  h1 {
     font-size: 60px !important;
   }
-  h3{
+
+  h3 {
     font-size: 40px !important;
   }
-  h6{
+
+  h6 {
     font-size: 20px !important;
   }
 }
@@ -65,12 +73,12 @@ h3 {
   padding: .75rem 1.25rem;
   margin-bottom: 1rem;
   border: 1px solid transparent;
-      border-top-color: transparent;
-      border-right-color: transparent;
-      border-bottom-color: transparent;
-      border-left-color: transparent;
+  border-top-color: transparent;
+  border-right-color: transparent;
+  border-bottom-color: transparent;
+  border-left-color: transparent;
   border-radius: 1rem;
-  width:21rem
+  width: 21rem
 }
 
 .roww {
@@ -87,3 +95,18 @@ h3 {
   margin-left: auto;
   margin-right: auto;
 }
+
+.tags-oben {
+  margin-left: 10px;
+}
+
+.mbadge {
+  display: inline-block;
+  padding: .25em .8em;
+  font-size: 50%;
+  font-weight: 700;
+  line-height: 1;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: baseline;
+  border-radius: 1rem;
