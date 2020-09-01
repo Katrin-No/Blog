@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Material+Icons">
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
@@ -19,4 +20,11 @@
     </ul>
     <%= yield %>
   </body>
+  <footer>
+    <div class=btn-position>
+      <button type="button" class="mbtn">
+        <i class="material-icons">arrow_upward</i>
+      </button>
+    </div>
+  </footer>
 </html>
