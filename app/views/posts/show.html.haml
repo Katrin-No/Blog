@@ -1,0 +1,30 @@
+%body
+  %p#notice= notice
+  %h1.post-headline= @post.title
+  %p
+    %strong Zutaten:
+    = @post.body
+  %div
+    - @post.tags.each do |tag|
+      %a.badge.badge-primary{:href => "#{show_tag_path(tag)}"}= tag.name
+  %br/
+  %h3 Kommentare:
+  .panel.panel-primary
+    .panel-heading Neuer Kommentar:
+    .panel-body
+      = form_for @comment do |f|
+        .field
+          = f.label :commenter
+          = f.text_field :commenter
+        .field
+          = f.label :body
+          = f.text_area :body
+        = f.hidden_field :post_id, value: @post.id
+        = f.submit "Abschicken"
+  %ul
+    - @post.comments.each do |comment|
+      %li
+        "#{comment.body}" von #{comment.commenter}
+  = link_to 'Edit', edit_post_path(@post)
+  |
+  \#{link_to 'Back', posts_path}

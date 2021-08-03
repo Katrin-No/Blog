@@ -1,0 +1,10 @@
+%h1= @tag.name
+.mcontainer
+  .roww
+    - @tag.posts.each do |post|
+      .allert.alert-prim{:role => "allert"}
+        %h3= link_to post.title, post
+        %p
+          (vom #{post.created_at})
+        - post.tags.each do |tag|
+          %a.badge.badge-primary{:href => "#{show_tag_path(tag)}"}= tag.name

@@ -1,0 +1,17 @@
+%body
+  %p.heading Tags hinzufügen
+  %h2
+    = @post.title
+  = form_with(url:tag_post_path(@post)) do |form|
+    .field
+      = form.label :tag
+      = form.text_field :tag
+    .actions
+      = form.submit "Speichern"
+  %p
+    - @post.tags.each do |tag|
+      %div
+        = form_with(url:remove_tag_path(@post)) do |form|
+          = form.hidden_field :tag_id, value: tag.id
+          = form.submit "x"
+          %a.badge.badge-primary= tag.name
