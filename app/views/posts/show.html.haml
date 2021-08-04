@@ -8,23 +8,27 @@
     - @post.tags.each do |tag|
       %a.badge.badge-primary{:href => "#{show_tag_path(tag)}"}= tag.name
   %br/
-  %h3 Kommentare:
+  %h5 Kommentare:
   .panel.panel-primary
-    .panel-heading Neuer Kommentar:
-    .panel-body
+    %ul
+      - @post.comments.each do |comment|
+        %li
+          "#{comment.body}" von #{comment.commenter}
+
+  .collabsible
+    %button.btn.btn-primary#add_comment= link_to "Kommentar hinzufügen"
+    .form
       = form_for @comment do |f|
-        .field
-          = f.label :commenter
-          = f.text_field :commenter
-        .field
-          = f.label :body
-          = f.text_area :body
+        .form-group
+          = f.label :commenter, 'Autor'
+          = f.text_field :commenter, class: 'form-control', placeholder: 'Name'
+        .form-group
+          = f.label :body, 'Kommentar'
+          = f.text_area :body, class: 'form-control', rows: 3, placeholder: 'Vorschläge, Bemerkungen'
         = f.hidden_field :post_id, value: @post.id
-        = f.submit "Abschicken"
-  %ul
-    - @post.comments.each do |comment|
-      %li
-        "#{comment.body}" von #{comment.commenter}
+        %button.btn.btn-primary{:type => "submit"} Abschicken
+  %br
+  
   = link_to 'Edit', edit_post_path(@post)
   |
   \#{link_to 'Back', posts_path}

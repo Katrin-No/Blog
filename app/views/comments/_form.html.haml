@@ -8,14 +8,14 @@
         %ul
           - comment.errors.full_messages.each do |message|
             %li= message
-    .field
-      = form.label :commenter
-      = form.text_field :commenter
-    .field
-      = form.label :body
-      = form.text_area :body
-    .field
-      = form.label :post_id
-      = form.text_field :post_id
-    .actions
-      = form.submit
+
+    .form-group
+      = form.label :commenter, 'Autor'
+      = form.text_field :commenter, class: 'form-control', placeholder: 'Name'
+    .form-group
+      = form.label :body, 'Kommentar'
+      = form.text_area :body, class: 'form-control', rows: 3, placeholder: 'Vorschläge, Bemerkungen'
+    .form-group
+      = form.label :post_id, 'Post id'
+      = form.text_field :post_id, class: 'form-control'
+    %button.btn.btn-primary{:type => "submit"} Abschicken
