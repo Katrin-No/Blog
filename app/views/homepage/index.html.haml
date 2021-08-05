@@ -5,11 +5,11 @@
 %br/
 %br/
 .mcontainer
-  .roww
+  .row.space-bw
     - @posts.each do |post|
-      .allert.alert-prim{:role => "allert"}
+      .allert.alert-prim.flex{:role => "allert"}
         %h3= link_to post.title, post
         %p== #{time_ago_in_words post.created_at} ago
-          
-        - post.tags.each do |tag|
-          %a.badge.badge-primary{:href => show_tag_path(tag)}= tag.name
+        .tags  
+          - post.tags.each do |tag|
+            %a.badge.badge-primary{:href => show_tag_path(tag)}= tag.name

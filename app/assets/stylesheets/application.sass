@@ -9,51 +9,25 @@ body
 h3
   font-family: cursive
 
-.m-bottom
-  margin-bottom: 3rem
+.tags-oben
+  margin-left: 10px
 
 .mbadge
   h6
     margin-bottom: 0
 
-#posts_liste
-  font-family: "Trebuchet MS", Arial, Helvetica, sans-serif
-  border-collapse: collapse
-  width: 98%
+.m-bottom
+  margin-bottom: 3rem
 
-  & td,
-
-  & th
-    border: 1px solid #ddd
-    padding: 8px
-
-  & tr:nth-child(even)
-    background-color: #f2f2f2
-
-  & tr:hover
-    background-color: #ddd
-
-  & th
-    padding-top: 12px
-    padding-bottom: 12px
-    text-align: left
-    background-color: rgba(135, 207, 235, 0.700)
-    color: rgb(39, 133, 240)
-
-@media screen and (min-width:720px)
-  h1
-    font-size: 60px !important
-
-  h4
-    font-size: 40px !important
-
-  h6
-    font-size: 20px !important
-
+// homepage posts
 .alert-prim
   color: #004085
   background-color: #cce5ff
   border-color: #b8daff
+
+.flex
+  display: flex
+  flex-direction: column
 
 .allert
   position: relative
@@ -63,22 +37,44 @@ h3
   border: 1px solid transparent
   border-color: transparent
   border-radius: 1rem
-  width: 18rem
+  width: 32%
 
-.roww
-  display: -ms-flexbox
-  display: flex
-  -ms-flex-wrap: wrap
-  flex-wrap: wrap
-  justify-content: space-between
+  .tags
+    margin-top: auto
+
+@media screen and (max-width:1020px)
+  .header
+    flex-direction: column
+
+  .allert
+    h3
+      a
+        font-size: 1.3rem
+        word-break: break-all
+    p
+      display: none
+
+@media screen and (max-width: 530px)
+  .allert
+    padding: .5rem .5rem
+    width: 49%
+    h3
+      a
+        font-size: 1rem
+  .negative-marg
+    margin: 0 -.5rem !important
 
 .mcontainer
   max-width: 1390px
   margin-left: auto
   margin-right: auto
 
-.tags-oben
-  margin-left: 10px
+  .space-bw
+    display: -ms-flexbox
+    display: flex
+    -ms-flex-wrap: wrap
+    flex-wrap: wrap
+    justify-content: space-between
 
 .mbadge
   display: inline-block
