@@ -1,19 +1,22 @@
-%body
-  %p.heading Tags hinzufügen
-  %h4.white.font
-    = @post.title
+%p.heading Tags hinzufügen
+%h4.white.font
+  = @post.title
 
-  = form_with(remote: false, url:tag_post_path(@post)) do |f|
-    .form-group.white-on-black
-      = f.label :tag
-      = f.text_field :tag, class: 'form-control'
-    = f.hidden_field :post_id, value: @post.id
-    %button.btn.btn-primary{:type => "submit"} Abschicken
+= form_with(remote: false, local: true, url:tag_post_path(@post)) do |f|
+  - if alert.present?
+    .alert.danger
+      Tag darf nicht leer sein oder schon existierten Namen haben
 
-  %p
-    - @post.tags.each do |tag|
-      %div
-        = form_with(url:remove_tag_path(@post)) do |form|
-          = form.hidden_field :tag_id, value: tag.id
-          = form.submit "x"
-          %a.badge.badge-primary= tag.name
+  .form-group.white-on-black
+    = f.label :tag
+    = f.text_field :tag, class: 'form-control'
+  = f.hidden_field :post_id, value: @post.id
+  %button.btn.btn-primary{:type => "submit"} Abschicken
+
+%p
+  - @post.tags.each do |tag|
+    %div
+      = form_with(url:remove_tag_path(@post)) do |form|
+        = form.hidden_field :tag_id, value: tag.id
+        = form.submit "x"
+        %a.badge.badge-primary= tag.name

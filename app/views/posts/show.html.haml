@@ -1,35 +1,33 @@
-%body
-  %p#notice= notice
-  .post-headline.font.white
-    %h4= @post.title
-  %p.titel-font
-    %strong Zutaten:
-    = @post.body
-  %div
-    - @post.tags.each do |tag|
-      %a.badge.badge-primary{:href => "#{show_tag_path(tag)}"}= tag.name
-  %br/
-  %h5.titel-font.white Kommentare:
-  .panel.panel-primary
-    %ul
-      - @post.comments.each do |comment|
-        %li.white
-          "#{comment.body}" von #{comment.commenter}
+.post-headline.font.white
+  %h4= @post.title
+%p.titel-font
+  %strong Zutaten:
+  = @post.body
+%div
+  - @post.tags.each do |tag|
+    %a.badge.badge-primary{:href => "#{show_tag_path(tag)}"}= tag.name
+%br/
+%h5.titel-font.white Kommentare:
+.panel.panel-primary
+  %ul
+    - @post.comments.each do |comment|
+      %li.white
+        "#{comment.body}" von #{comment.commenter}
 
-  .collabsible
-    %button.btn.btn-primary.titel-font#add_comment= link_to "Kommentar hinzufügen"
-    .form
-      = form_for @comment do |f|
-        .form-group.white-on-black
-          = f.label :commenter, 'Autor'
-          = f.text_field :commenter, class: 'form-control', placeholder: 'Name'
-        .form-group.white-on-black
-          = f.label :body, 'Kommentar'
-          = f.text_area :body, class: 'form-control', rows: 3, placeholder: 'Vorschläge, Bemerkungen'
-        = f.hidden_field :post_id, value: @post.id
-        %button.btn.btn-primary{:type => "submit"} Abschicken
-  %br
-  
-  = link_to 'Edit', edit_post_path(@post)
-  |
-  \#{link_to 'Back', posts_path}
+.collabsible
+  %button.btn.btn-primary.titel-font#add_comment= link_to "Kommentar hinzufügen"
+  .form
+    = form_for @comment do |f|
+      .form-group.white-on-black
+        = f.label :commenter, 'Autor'
+        = f.text_field :commenter, class: 'form-control', placeholder: 'Name'
+      .form-group.white-on-black
+        = f.label :body, 'Kommentar'
+        = f.text_area :body, class: 'form-control', rows: 3, placeholder: 'Vorschläge, Bemerkungen'
+      = f.hidden_field :post_id, value: @post.id
+      %button.btn.btn-primary{:type => "submit"} Abschicken
+%br
+
+= link_to 'Edit', edit_post_path(@post)
+|
+\#{link_to 'Back', posts_path}

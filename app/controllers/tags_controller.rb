@@ -1,35 +1,26 @@
 class TagsController < ApplicationController
-    def add
-      post = Post.find params[:id]
-      tags = Tag.where(name: params[:tag])
-
-        if tags.count == 0
-            tag = Tag.new
-            tag.name = params[:tag]
-        else
-            tag = tags.first
-        end
-
-        if !post.tags.include?(tag)
-            post.tags << tag
-        end
-        
-        if tag.save
-            redirect_to tag_post_path(post)
-        else
-            render "add", alert: "Tag darf nicht leer sein oder gleichen Namen haben"
-        end
+  def add
+    @post = Post.find params[:id]
+    tag = Tag.find_or_create_by(name: params[:tag])
+    
+    if tag.valid?
+      @post.add_tag(tag)
+      redirect_to tag_post_path(@post)
+    else
+      redirect_to tag_post_path(@post), alert: "Tag darf nicht leer sein oder gleichen Namen haben"
     end
+  end
 
-    def remove
-        post = Post.find params[:id]
-        tag = Tag.find params[:tag_id]
-        post.tags.delete(tag)
-        redirect_to tag_post_path(post)
+  def remove
+    post = Post.find params[:id]
+    tag = Tag.find params[:tag_id]
+    if post.tags.delete(tag)
+      redirect_to tag_post_path(post), notice: "Tag wurde gelöscht"
     end
+    
+  end
 
-    def show
-        @tag = Tag.find params[:id]
-    end
-
+  def show
+    @tag = Tag.find params[:id]
+  end
 end

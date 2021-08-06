@@ -1,14 +1,12 @@
-%body
-  %p#notice= notice
-  %p
-    %strong Autor:
-    = @comment.commenter
-  %p
-    %strong Kommentar:
-    = @comment.body
-  %p
-    %strong Post:
-    = @comment.post_id
-  = link_to 'Edit', edit_comment_path(@comment)
-  |
-  \#{link_to 'Back', comments_path}
+%p
+  %strong Autor:
+  = @comment.commenter
+%p
+  %strong Kommentar:
+  = @comment.body
+%p
+  %strong Post:
+  = @comment.post_id
+= link_to 'Edit', edit_comment_path(@comment)
+|
+\#{link_to 'Back', comments_path}

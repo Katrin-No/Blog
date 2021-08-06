@@ -1,19 +1,14 @@
-%body
-  = form_with(model: post, local: true) do |form|
-    - if post.errors.any?
-      #error_explanation
-        %h2
-          = pluralize(post.errors.count, "error")
-          prohibited this post from being saved:
-        %ul
-          - post.errors.full_messages.each do |message|
-            %li= message
+= form_with(model: post, local: true) do |form|
+  - if post.errors.any?
+    .alert.danger
+      Titel darf nicht leer sein oder schon existierten Namen haben
 
-    .form-group.white-on-black
-      = form.label :title, 'Titel'
-      = form.text_field :title, class: 'form-control', placeholder: 'Zutaten, Schritte'  
-    .field.white-on-black
-      = form.label :body, 'Rezept'
-      = form.rich_text_area :body
-    %br
-    %button.btn.btn-primary{:type => "submit"} Abschicken
+  .form-group.white-on-black
+    = form.label :title, 'Titel'
+    = form.text_field :title, class: 'form-control'
+  .field.white-on-black
+    = form.label :body, 'Rezept'
+    = form.rich_text_area :body, placeholder: 'Zutaten, Schritte'  
+  %br
+  
+  %button.btn.btn-primary{:type => "submit"} Abschicken
