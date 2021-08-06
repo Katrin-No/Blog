@@ -4,7 +4,7 @@
     = @post.title
 
   = form_with(url:tag_post_path(@post)) do |f|
-    .form-group
+    .form-group.white-on-black
       = f.label :tag
       = f.text_field :tag, class: 'form-control'
     = f.hidden_field :post_id, value: @post.id
