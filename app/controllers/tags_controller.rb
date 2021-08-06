@@ -2,17 +2,23 @@ class TagsController < ApplicationController
     def add
       post = Post.find params[:id]
       tags = Tag.where(name: params[:tag])
+
         if tags.count == 0
             tag = Tag.new
             tag.name = params[:tag]
-            tag.save
         else
             tag = tags.first
         end
+
         if !post.tags.include?(tag)
             post.tags << tag
         end
-        redirect_to tag_post_path(post)
+        
+        if tag.save
+            redirect_to tag_post_path(post)
+        else
+            render "add", alert: "Tag darf nicht leer sein oder gleichen Namen haben"
+        end
     end
 
     def remove
@@ -26,5 +32,4 @@ class TagsController < ApplicationController
         @tag = Tag.find params[:id]
     end
 
-  end
-  
+end

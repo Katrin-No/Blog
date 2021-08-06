@@ -1,9 +1,9 @@
 %body
   %p.heading Tags hinzufügen
-  %h4
+  %h4.white.font
     = @post.title
 
-  = form_with(url:tag_post_path(@post)) do |f|
+  = form_with(remote: false, url:tag_post_path(@post)) do |f|
     .form-group.white-on-black
       = f.label :tag
       = f.text_field :tag, class: 'form-control'
