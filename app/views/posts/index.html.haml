@@ -9,7 +9,7 @@
   %tbody
     - @posts.each do |post|
       %tr
-        %td= link_to post.title, post
+        %td.font= link_to post.title, post
         %td
           - post.tags.each do |tag|
             %a.badge.badge-primary{:href => "#{show_tag_path(tag)}"}

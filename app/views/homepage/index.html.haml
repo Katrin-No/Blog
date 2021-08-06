@@ -1,7 +1,7 @@
 .tags-oben
   - Tag.all.each do |tag|
     %a.mbadge.badge-primary{:href => show_tag_path(tag)}
-      %h6= tag.name
+      %h6.titel-font= tag.name
 %br/
 %br/
 .mcontainer
@@ -9,7 +9,7 @@
     - @posts.each do |post|
       .allert.alert-prim.flex{:role => "allert"}
         %h3= link_to post.title, post
-        %p== #{time_ago_in_words post.created_at} ago
+        %p.font== #{time_ago_in_words post.created_at} ago
         .tags  
           - post.tags.each do |tag|
             %a.badge.badge-primary{:href => show_tag_path(tag)}= tag.name

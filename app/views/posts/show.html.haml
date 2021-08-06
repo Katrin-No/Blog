@@ -1,14 +1,15 @@
 %body
   %p#notice= notice
-  %h4.post-headline= @post.title
-  %p
+  .post-headline.font
+    %h4= @post.title
+  %p.titel-font
     %strong Zutaten:
     = @post.body
   %div
     - @post.tags.each do |tag|
       %a.badge.badge-primary{:href => "#{show_tag_path(tag)}"}= tag.name
   %br/
-  %h5 Kommentare:
+  %h5.titel-font Kommentare:
   .panel.panel-primary
     %ul
       - @post.comments.each do |comment|
@@ -16,7 +17,7 @@
           "#{comment.body}" von #{comment.commenter}
 
   .collabsible
-    %button.btn.btn-primary#add_comment= link_to "Kommentar hinzufügen"
+    %button.btn.btn-primary.titel-font#add_comment= link_to "Kommentar hinzufügen"
     .form
       = form_for @comment do |f|
         .form-group
