@@ -13,7 +13,7 @@
   .panel.panel-primary
     %ul
       - @post.comments.each do |comment|
-        %li
+        %li.white
           "#{comment.body}" von #{comment.commenter}
 
   .collabsible

@@ -11,3 +11,13 @@
         %a.nav-link{:href => "/posts"} Posts
       %li.nav-item
         %a.nav-link{:href => "/comments"} Comments
+
+  - if flash[:notice].present?
+    .alert.alert-info{role: "alert"}
+      = sanitize flash[:notice], tags: %w(br ul li strong)
+      %button.close{"data-dismiss": "alert", type: "button"} ×
+
+  - if flash[:alert].present?
+    .alert.alert-danger{role: "alert"}
+      = sanitize flash[:alert], tags: %w(br ul li strong)
+      %button.close{"data-dismiss": "alert", type: "button"} ×

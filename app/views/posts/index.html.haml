@@ -1,21 +1,23 @@
 %p#notice= notice
 %p Alles, was wir hier bisher gesammelt haben:
-%table.table.table-hover.table-responsive.white-on-black
-  %thead
-    %tr
-      %th.w55 Titel
-      %th.w30 Tags
-      %th{:colspan => "3"} Funktion
-  %tbody
-    - @posts.each do |post|
+
+.white-on-black
+  %table.table.table-hover.table-responsive
+    %thead
       %tr
-        %td.font= link_to post.title, post
-        %td
-          - post.tags.each do |tag|
-            %a.badge.badge-primary{:href => "#{show_tag_path(tag)}"}
-              = tag.name
-        %td= link_to 'Edit', edit_post_path(post)
-        %td= link_to '+Tags', tag_post_path(post)
-        %td= link_to 'x', post, method: :delete, data: { confirm: 'Are you sure?' }
+        %th.w55 Titel
+        %th.w30 Tags
+        %th{:colspan => "3"} Funktion
+    %tbody
+      - @posts.each do |post|
+        %tr
+          %td.font= link_to post.title, post
+          %td
+            - post.tags.each do |tag|
+              %a.badge.badge-primary{:href => "#{show_tag_path(tag)}"}
+                = tag.name
+          %td= link_to 'Edit', edit_post_path(post)
+          %td= link_to '+Tags', tag_post_path(post)
+          %td= link_to 'x', post, method: :delete, data: { confirm: 'Are you sure?' }
 %br/
 = link_to 'New Post', new_post_path
