@@ -9,10 +9,10 @@
           - post.errors.full_messages.each do |message|
             %li= message
 
-    .form-group
+    .form-group.white-on-black
       = form.label :title, 'Titel'
       = form.text_field :title, class: 'form-control', placeholder: 'Zutaten, Schritte'  
-    .field
+    .field.white-on-black
       = form.label :body, 'Rezept'
       = form.rich_text_area :body
     %br
