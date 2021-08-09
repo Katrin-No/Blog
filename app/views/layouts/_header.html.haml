@@ -5,11 +5,9 @@
     %nav.nav.nav-pills.justify-content-end.top-menu
       - if user_signed_in?
         %li.nav-item
-          %a.nav-link{:href => "/"} Home
+          %a.nav-link{:href => "/posts"} Posts
         %li.nav-item
           %a.nav-link.active{:href => "/posts/new"} New Post
-        %li.nav-item
-          %a.nav-link{:href => "/posts"} Posts
         %li.nav-item
           %a.nav-link{:href => "/comments"} Comments
         %li.nav-item
