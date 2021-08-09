@@ -60,7 +60,7 @@ trix-toolbar .trix-button-group-spacer {
 trix-toolbar .trix-button {
   position: relative;
   float: left;
-  color: rgba(255, 255, 255, 0.6); // icons color
+  color: rgba(0, 0, 0, 0.6);
   font-size: 0.75em;
   font-weight: 600;
   white-space: nowrap;
@@ -70,7 +70,7 @@ trix-toolbar .trix-button {
   border: none;
   border-bottom: 1px solid rgb(216, 212, 207);
   border-radius: 0;
-  background: rgb(24, 26, 27) //#1d87d6cf
+  background: #1d87d6cf
 }
 
 trix-toolbar .trix-button:not(:first-child) {
