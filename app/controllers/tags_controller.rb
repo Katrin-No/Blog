@@ -1,4 +1,6 @@
 class TagsController < ApplicationController
+  before_action :authenticate_user!, only: [:add, :edit, :update, :delete]
+
   def add
     @post = Post.find params[:id]
     tag = Tag.find_or_create_by(name: params[:tag])
