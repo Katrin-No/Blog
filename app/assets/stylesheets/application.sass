@@ -12,6 +12,7 @@ body
 
 .tags-oben
   margin-left: 10px
+  margin-bottom: 1rem
 
 .mbadge
   h6
@@ -30,10 +31,10 @@ td
   font-size: 1.2rem
 
 .white, p
-  color: white
+  color: rgb(209, 205, 199)
 
 .white-on-black
-  color: white
+  color: rgb(209, 205, 199)
   background-color: rgb(24, 26, 27)
   .form-control
     background-color: rgb(24, 26, 27) !important
@@ -60,6 +61,7 @@ td
     a
       color: rgb(51, 162, 255)
       font-family: 'Indie Flower', cursive
+      word-break: break-word
   p
     color: rgb(112, 193, 255)
 
@@ -94,17 +96,18 @@ td
     h3
       a
         font-size: 1.3rem
-        word-break: break-all
+        word-break: break-word
     p
       display: none
 
 @media screen and (max-width: 530px)
+  .tags-oben
+    margin-bottom: 0
+
   .allert
     padding: .5rem .5rem
     width: 49%
-    h3
-      a
-        font-size: 1rem
+
   .negative-marg
     margin: 0 -.5rem !important
 
@@ -130,3 +133,4 @@ td
   white-space: nowrap
   vertical-align: baseline
   border-radius: 1rem
+  margin-bottom: .3rem

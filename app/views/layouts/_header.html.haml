@@ -3,15 +3,21 @@
     .titel 
       %a{:href => "/"} Rezeptenbibliothek
     %nav.nav.nav-pills.justify-content-end.top-menu
-      %li.nav-item
-        %a.nav-link{:href => "/"} Home
-      %li.nav-item
-        %a.nav-link.active{:href => "/posts/new"} New Post
-      %li.nav-item
-        %a.nav-link{:href => "/posts"} Posts
-      %li.nav-item
-        %a.nav-link{:href => "/comments"} Comments
-
+      - if user_signed_in?
+        %li.nav-item
+          %a.nav-link{:href => "/"} Home
+        %li.nav-item
+          %a.nav-link.active{:href => "/posts/new"} New Post
+        %li.nav-item
+          %a.nav-link{:href => "/posts"} Posts
+        %li.nav-item
+          %a.nav-link{:href => "/comments"} Comments
+        %li.nav-item
+          = link_to "Logout", destroy_user_session_path, class: "nav-link", method: :delete
+      - else
+        
+        %li.nav-item
+          %a.nav-link.active{:href => "/users/sign_in"} Login
 
   - if flash[:notice].present?
     .alert.alert-info.success{role: "alert"}

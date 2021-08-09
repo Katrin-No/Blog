@@ -1,0 +1,25 @@
+.font.white
+  %h4 Passwort ändern
+
+= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put }) do |f|
+  = render "devise/shared/error_messages", resource: resource
+  = f.hidden_field :reset_password_token
+
+  .form-group.white-on-black
+    = f.label :password, "New password"
+    %br/
+    - if @minimum_password_length
+      %em
+        (mindestens #{@minimum_password_length} Zeichen)
+      %br/
+    = f.password_field :password, autofocus: true, autocomplete: "new-password", class: 'form-control'
+
+  .form-group.white-on-black
+    = f.label :password_confirmation, "Confirm new password"
+    %br/
+    = f.password_field :password_confirmation, autocomplete: "new-password", class: 'form-control'
+  
+  %button.btn.btn-primary{:type => "submit"} "Ändern"
+
+%br
+= render "devise/shared/links"
