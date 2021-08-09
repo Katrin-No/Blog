@@ -500,7 +500,8 @@ trix-editor .attachment__metadata .attachment__size {
 }
 
 .trix-content img {
-  max-width: 100%;
+  max-width: 50%;
+  min-width: 320px;
   height: auto;
 }
 
