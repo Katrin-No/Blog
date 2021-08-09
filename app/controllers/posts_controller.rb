@@ -1,7 +1,7 @@
 class PostsController < ApplicationController
   before_action :set_post, only: [:show, :edit, :update, :destroy]
-  before_action :authenticate_user!, only: [:edit, :update, :tags, :destroy]
-  # before_action :need_admin_role, only: :destroy
+  before_action :authenticate_user!, only: [:edit, :update, :tags]
+  before_action :need_admin_role, only: :destroy
 
   # GET /posts
   # GET /posts.json

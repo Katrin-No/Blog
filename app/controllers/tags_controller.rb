@@ -1,5 +1,6 @@
 class TagsController < ApplicationController
-  before_action :authenticate_user!, only: [:add, :edit, :update, :delete]
+  before_action :authenticate_user!, only: [:add, :edit, :update]
+  before_action :need_admin_role, only: :destroy
 
   def add
     @post = Post.find params[:id]
