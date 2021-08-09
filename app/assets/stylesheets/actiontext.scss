@@ -60,7 +60,7 @@ trix-toolbar .trix-button-group-spacer {
 trix-toolbar .trix-button {
   position: relative;
   float: left;
-  color: rgba(0, 0, 0, 0.6);
+  color: rgba(255, 255, 255, 0.6); // icons color
   font-size: 0.75em;
   font-weight: 600;
   white-space: nowrap;
@@ -68,10 +68,9 @@ trix-toolbar .trix-button {
   margin: 0;
   outline: none;
   border: none;
-  border-bottom: 1px solid #ddd;
+  border-bottom: 1px solid rgb(216, 212, 207);
   border-radius: 0;
-  background: #1d87d6cf;
-  ;
+  background: rgb(24, 26, 27) //#1d87d6cf
 }
 
 trix-toolbar .trix-button:not(:first-child) {
@@ -451,7 +450,7 @@ trix-editor .attachment__metadata .attachment__size {
 
 .trix-content {
   line-height: 1.5;
-  color: white
+  color: rgb(216, 212, 207) // color for posts text
 }
 
 .trix-content * {
