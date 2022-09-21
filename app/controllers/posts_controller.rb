@@ -9,6 +9,9 @@ class PostsController < ApplicationController
     @posts = Post.all.order(title: :asc)
   end
 
+  def export
+  end
+
   # GET /posts/1
   # GET /posts/1.json
   def show
